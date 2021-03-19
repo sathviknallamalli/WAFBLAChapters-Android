@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "368403097563",
-    "firebase_url": "https://ohsfbla-321e7.firebaseio.com",
-    "project_id": "ohsfbla-321e7",
-    "storage_bucket": "ohsfbla-321e7.appspot.com"
+    "project_number": "953190295119",
+    "project_id": "wa-fbla-chapters",
+    "storage_bucket": "wa-fbla-chapters.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:368403097563:android:9a1dfa457ca755054e69fe",
+        "mobilesdk_app_id": "1:953190295119:android:d0a1c42bff49c4b1616c3a",
         "android_client_info": {
-          "package_name": "olyapps.sathv.fbla2020"
+          "package_name": "com.apps.wafbla"
         }
       },
       "oauth_client": [
         {
-          "client_id": "368403097563-9dal8aj1oodelcnghrvlpv83qqrvr4oh.apps.googleusercontent.com",
+          "client_id": "953190295119-ogogfa1dgnomsdh68e9oa6aovu07eiq9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.apps.wafbla",
+            "certificate_hash": "f8798bdecf1da18e2c5c676bbfeebf436e783364"
+          }
+        },
+        {
+          "client_id": "953190295119-g34iqvn1122sa24rsquqjsmimjrcf32u.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC00aaQHrFpbUkvosdZCNkBA7eCnFajvXA"
+          "current_key": "AIzaSyAdBwGP5NFsxLutr4w-9gef1MUK0WUR3lw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "368403097563-9dal8aj1oodelcnghrvlpv83qqrvr4oh.apps.googleusercontent.com",
+              "client_id": "953190295119-g34iqvn1122sa24rsquqjsmimjrcf32u.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "368403097563-0so38438ebrfjj3ajmr2etcmv3ohf6kt.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "COM.THESWIFT.MobileAppFBLA2020"
-              }
             }
           ]
         }

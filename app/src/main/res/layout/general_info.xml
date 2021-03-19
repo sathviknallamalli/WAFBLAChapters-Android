@@ -2,15 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="olyapps.sathv.fbla2020.FBLAHome">
+    tools:context="com.apps.wafbla.FBLAHome">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginStart="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,10 +40,10 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView5"
                     android:layout_width="185dp"
+                    android:paddingHorizontal="10dp"
                     android:layout_height="134dp"
-                    app:srcCompat="@drawable/fblasmall" />
+                    app:srcCompat="@drawable/wafbla" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/chapterlogo"
@@ -57,10 +57,10 @@
 
             <TextView
                 android:id="@+id/chaptertitle"
-                android:layout_marginTop="25dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-smallcaps"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/prompt"
                 android:text="Olympia High School FBLA"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
@@ -68,87 +68,31 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView39"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="This years theme is..."
+                android:text="This year's theme is..."
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
                 android:textSize="30sp" />
 
             <ImageView
-                android:id="@+id/imageView23"
+                android:id="@+id/themeLogo"
                 android:layout_width="match_parent"
                 android:layout_height="212dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/themepic" />
 
             <TextView
-                android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Conference Dates 2019-20"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/datestv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="dates info"
+                android:gravity="center_horizontal"
+                android:text="Washington Future Business Leaders of America (FBLA) is the premier organization for students with career interests in business. Through leadership and career development programs, competitions, and trainings, Washington FBLA prepares community-minded student leaders for higher education and the transition from school to career. Our members represent some of the most driven and hard-working high school students today. "
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/line" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="This is the official app for your 2019-2020 FBLA Chapter. Get up to date information about your chapter and conferences. Check back for more infromation"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="match_parent"
-                android:layout_marginTop="15dp"
-                android:layout_height="wrap_content"
-                android:text="Dress Code"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Make sure to follow all the dress codes in order to participate in your events and attend conferences. Click below to view the FBLA-PBL dress code"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <WebView
-                android:id="@+id/dresscode"
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="445dp"
-                android:layout_marginBottom="20dp">
-
-            </WebView>
+                android:textSize="16dp"
+                tools:text="Washington Future Business Leaders of America (FBLA) is the premier organization for students with career interests in business. Through leadership and career development programs, competitions, and trainings, Washington FBLA prepares community-minded student leaders for higher education and the transition from school to career. Our members represent some of the most driven and hard-working high school students today. " />
 
         </LinearLayout>
 

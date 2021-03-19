@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="olyapps.sathv.fbla2020.Details">
+    tools:context="com.apps.wafbla.Details">
 
     <TextView
         android:id="@+id/bigcategory"

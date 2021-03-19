@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/creategradient"
-    tools:context="olyapps.sathv.fbla2020.PreFinish">
+    android:background="@color/com_facebook_blue"
+    tools:context="com.apps.wafbla.PreFinish">
 
     <TextView
         android:id="@+id/textView65"

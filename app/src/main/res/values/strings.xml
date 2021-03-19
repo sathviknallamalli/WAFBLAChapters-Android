@@ -1,17 +1,12 @@
 <resources>
-    <string name="app_name">MyFBLA</string>
+    <string name="app_name">WAFBLA</string>
     <string name="title_activity_fblahome">FBLAHome</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
-
     <string name="facebook_app_id">2911031472456716</string>
     <string name="fb_login_protocol_scheme">fb2911031472456716</string>
-
-    <string name="blank">blank</string>
-    <string name="correct">correct</string>
 
     <string name="fname">fname</string>
     <string name="lname">lname</string>
@@ -23,56 +18,21 @@
     <string name="uid">uid</string>
     <string name="profpic">profpic</string>
     <string name="deviceToken">deviceotken</string>
-    <string name="alls">alls</string>
 
-    <string name="memberkey">memberkey</string>
-    <string name="officerkey">officerkey</string>
-    <string name="adviserkey">adviserkey</string>
-
-
-    <string name="chapterid">chapterid</string>
-
-    <string name="guster">guster</string>
-
-    <string name="temp">temp</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main">MainActivity</string>
-
-    <string name="subscribe_to_news">Subscribe To News</string>
-    <string name="log_token">Log Token</string>
 
     <string name="msg_subscribed">Subscribed to news topic</string>
-    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
 
-    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <!--
         This is the name that users will see when interacting with this channel.
         It should describe the category of notifications that will be sent through this channel
      -->
-    <string name="default_notification_channel_name" translatable="true">News</string>
-    <string name="msg_subscribe_failed">Failed to subscribe to news topic</string>
-
-    <string name="title_activity_tabbed">TabbedActivity</string>
-
-    <string name="section_format">Hello World from section: %1$d</string>
 
     <string-array name="roles">
         <item>Select your role</item>
         <item>Member</item>
-        <item>Officer</item>
         <item>Adviser</item>
-    </string-array>
-
-    <string-array name="setuproles">
-        <item>Please select your role</item>
-        <item>Empty</item>
-        <item>Member</item>
-        <item>Officer</item>
-        <item>Adviser</item>
-        <item>State Officer</item>
-        <item>National Officer</item>
     </string-array>
 
     <string-array name="gradyear">
@@ -81,19 +41,6 @@
         <item>2021</item>
         <item>2022</item>
         <item>2023</item>
-    </string-array>
-
-    <string-array name="reminderoptions">
-        <item>No alerts</item>
-        <item>On time</item>
-        <item>10 min before</item>
-        <item>30 min before</item>
-        <item>1 hour before</item>
-        <item>1 day before</item>
-    </string-array>
-    <string-array name="statusoptions">
-        <item>0 - Not approved</item>
-        <item>1 - Approved</item>
     </string-array>
 
     <string-array name="states">

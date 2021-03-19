@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="olyapps.sathv.fbla2020.Settings">
+    tools:context="com.apps.wafbla.Settings">
 
     <TextView
         android:id="@+id/textView43"
@@ -186,7 +186,6 @@
         android:inputType="textEmailAddress" />
 
     <ImageView
-        android:id="@+id/imageView28"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_alignEnd="@+id/imageView27"

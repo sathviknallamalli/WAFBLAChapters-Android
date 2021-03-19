@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="olyapps.sathv.fbla2020"
+    package="com.apps.wafbla"
     android:versionCode="29">
 
     <application
-        android:name=".FireApp"
+        android:name="com.apps.wafbla.FireApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,31 +16,31 @@
         android:windowSoftInputMode="adjustPan">
 
         <activity
-            android:name=".PreFinish"
+            android:name="com.apps.wafbla.PreFinish"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LastStep"
+            android:name="com.apps.wafbla.LastStep"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RolesStep"
+            android:name="com.apps.wafbla.RolesStep"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AdviserAccount"
+            android:name="com.apps.wafbla.AdviserAccount"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MemberRole"
+            android:name="com.apps.wafbla.MemberRole"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RegisterChapter"
+            android:name="com.apps.wafbla.RegisterChapter"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".JoinChapter"
+            android:name="com.apps.wafbla.JoinChapter"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.apps.wafbla.SplashScreen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Home"
+            android:name="com.apps.wafbla.Home"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -50,11 +50,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LockScreen"
+            android:name="com.apps.wafbla.LockScreen"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".FBLAHome"
+            android:name="com.apps.wafbla.FBLAHome"
             android:label="@string/title_activity_fblahome"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
@@ -66,88 +66,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CreateFBLAAccount"
+            android:name="com.apps.wafbla.CreateFBLAAccount"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.apps.wafbla.ChapterSettings"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ChapterSettings"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".Details"
+            android:name="com.apps.wafbla.Details"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RatingSheet"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Instructions"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".PaymentInformation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Head"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".FallDetails"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".StateDetails"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".SponsorDetails"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="com.example.sathv.ohsfbla_TARGET_AS" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".PostActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".Setup"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Profile"
+            android:name="com.apps.wafbla.RatingSheet"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
-            android:name=".PostSingleActivity"
+            android:name="com.apps.wafbla.ANote"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ANote"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".PopupActivity"
+            android:name="com.apps.wafbla.Hello"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Hello"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Settings" />
-        <activity
-            android:name=".TabbedActivity"
-            android:label="@string/title_activity_tabbed"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Approvals" />
-        <activity
-            android:name=".ChatActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".FullImage"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CommentActivity" />
-        <activity android:name=".OtherProfile" />
+        <activity android:name="com.apps.wafbla.Settings" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -174,13 +116,13 @@
             android:value="@string/facebook_app_id"
             tools:replace="android:value" />
 
-        <service android:name=".MyFirebaseInstanceIdService">
+        <service android:name="com.apps.wafbla.MyFirebaseInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name="com.apps.wafbla.MyFirebaseMessagingService"
             android:enabled="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

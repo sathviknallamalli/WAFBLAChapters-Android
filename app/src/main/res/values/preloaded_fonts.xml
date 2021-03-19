@@ -4,5 +4,6 @@
         <item>@font/aldrich</item>
         <item>@font/amaranth</item>
         <item>@font/marvel</item>
+        <item>@font/prompt</item>
     </array>
 </resources>

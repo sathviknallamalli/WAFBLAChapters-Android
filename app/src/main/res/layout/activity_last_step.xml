@@ -2,10 +2,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="olyapps.sathv.fbla2020.LastStep"
-    android:background="@drawable/creategradient">
+    tools:context="com.apps.wafbla.LastStep"
+    android:background="@color/com_facebook_blue">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,6 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView57"
             android:layout_width="match_parent"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -33,7 +32,6 @@
             tools:text="Last Step!\nChapter Logistics" />
 
         <TextView
-            android:id="@+id/textView56"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -52,7 +50,6 @@
             tools:text="The final stage in setting up your chapter account is to select dates, logo, and other details" />
 
         <TextView
-            android:id="@+id/textView62"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -60,7 +57,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="20dp"
-            android:text="Select your chapter logo. It can be your higschool logo or any other symbol to represent your chapter FBLA"
+            android:text="Select your chapter logo. It can be your high school logo or any other symbol to represent your chapter FBLA"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="15sp"
@@ -68,7 +65,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registernew"
-            tools:text="Select your chapter logo. It can be your higschool logo or any other symbol to represent your chapter FBLA" />
+            tools:text="Select your chapter logo. It can be your high school logo or any other symbol to represent your chapter FBLA" />
 
         <ImageView
             android:id="@+id/chapterlogo"
@@ -78,277 +75,6 @@
             android:layout_height="80dp"
             android:layout_marginTop="16dp"
             app:srcCompat="@drawable/ic_menu_camera" />
-
-        <EditText
-            android:id="@+id/scdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:hint="State conference date"
-            android:inputType="date" />
-
-        <EditText
-            android:id="@+id/wcdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:hint="Winter/Regionals conference date"
-            android:inputType="date" />
-
-        <EditText
-            android:id="@+id/fcdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:hint="Fall conference date"
-            android:inputType="date" />
-
-        <TextView
-            android:id="@+id/textView23"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="20dp"
-            android:text="Enter your chapter officers"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registernew"
-            tools:text="Enter your chapter officers" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/presidentname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:hint="President"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-                android:inputType="textPersonName" />
-
-            <ImageView
-                android:id="@+id/presimg"
-                android:tag="PresidentImg"
-                android:onClick="imgclick"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/primaryuser" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/vpname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-                android:ems="10"
-                android:hint="Vice president"
-                android:inputType="textPersonName" />
-
-            <ImageView
-                android:id="@+id/vpimg"
-                android:tag="VicePresidentImg"
-                android:onClick="imgclick"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/primaryuser" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/secname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:hint="Secretary"
-                android:inputType="textPersonName" />
-
-            <ImageView
-                android:id="@+id/secimg"
-                android:onClick="imgclick"
-                android:tag="SecretaryImg"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/primaryuser" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/tresname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-                android:ems="10"
-                android:hint="Treasurer"
-                android:inputType="textPersonName" />
-
-            <ImageView
-                android:id="@+id/tresimg"
-                android:onClick="imgclick"
-                android:tag="TreasurerImg"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/primaryuser" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/pubrelname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-                android:ems="10"
-                android:hint="Public relations"
-                android:inputType="textPersonName" />
-
-            <ImageView
-                android:id="@+id/pubrelimg"
-                android:tag="PublicRelationsImg"
-                android:onClick="imgclick"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/primaryuser" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/advisername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:hint="Adviser"
-                android:inputType="textPersonName" />
-
-            <ImageView
-                android:id="@+id/advimg"
-                android:tag="AdviserImg"
-                android:onClick="imgclick"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/primaryuser" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView38"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="20dp"
-            android:text="Enter your chapter social media"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registernew"
-            tools:text="Enter your chapter social media" />
-
-        <EditText
-            android:id="@+id/instaurl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:hint="Instagram url"
-            android:inputType="textUri" />
-
-        <EditText
-            android:id="@+id/fburl"
-            android:layout_width="match_parent"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:hint="Facebook url"
-            android:inputType="textUri" />
 
         <Button
             android:id="@+id/complete"

@@ -191,7 +191,7 @@ public class LockScreen extends AppCompatActivity {
                             editor.putString("chapterID", input.getText().toString());
                             editor.putString("who", who);
                             editor.apply();
-
+//blach lafcommit sngrigu
 
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);

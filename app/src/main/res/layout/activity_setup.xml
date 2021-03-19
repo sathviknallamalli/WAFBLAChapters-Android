@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="olyapps.sathv.fbla2020.Setup">
+    tools:context="com.apps.wafbla.Setup">
 
     <LinearLayout
         android:layout_width="match_parent"
