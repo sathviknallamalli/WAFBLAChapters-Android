@@ -1,6 +1,6 @@
 const functions = require("firebase-functions");
 
-exports.sendNotification = functions.database.ref('/Chapters/{chapID}/Users/{userID}/Notifications')
+exports.helloFunction = functions.database.ref('/Chapters/{chapID}/Users/{userID}/Notifications')
     .onWrite(async (change, context) => {
       const chapID = context.params.chapID;
       const userID = context.params.userID;

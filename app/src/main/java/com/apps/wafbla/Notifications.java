@@ -1,6 +1,8 @@
 package com.apps.wafbla;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -152,6 +154,28 @@ public class Notifications extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        listofnotifs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View listview, int position, long val) {
+
+                int i = position;
+
+                //based on what book is
+
+                Intent appInfo = new Intent(view.getContext(), SpecificNotification.class);
+                appInfo.putExtra("title", notiftitle.get(i));
+                appInfo.putExtra("timestamp", notiftimestamp.get(i));
+                appInfo.putExtra("message", notifmessage.get(i));
+                startActivity(appInfo);
+
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.addToBackStack(Notifications.class.getName()).commit();
+                fm.executePendingTransactions();
 
             }
         });

@@ -82,7 +82,7 @@ public class LastStep extends AppCompatActivity {
                 for (int uploads = 0; uploads < ImageList.size(); uploads++) {
                     Uri Image = ImageList.get(uploads);
                     final String tag = taglist.get(uploads);
-                    final StorageReference imagename = ImageFolder.child("image/" + Image.getLastPathSegment());
+                    final StorageReference imagename = ImageFolder.child("logo.png");
 
                     final int finalUploads = uploads;
                     imagename.putFile(Image).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

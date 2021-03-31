@@ -37,24 +37,15 @@ import me.fahmisdk6.avatarview.AvatarView;
 
 public class Settings extends AppCompatActivity {
 
-    EditText f, l, position, email, phone, website;
+    EditText f, l, position, email;
 
-    ImageButton camclick;
     private static final int GALLEY_REQUEST = 1;
-
-    Uri mImageuri = null;
-
-    StorageReference mstorageimage;
     ViewSwitcher vs;
     DatabaseReference dr;
     CircleImageView civ;
     FirebaseAuth mAuth;
     FirebaseUser user;
     AvatarView userinitials;
-
-    String uri;
-
-    boolean ischange;
 
     Button logout;
 
@@ -73,7 +64,6 @@ public class Settings extends AppCompatActivity {
         upArrow.setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mstorageimage = FirebaseStorage.getInstance().getReference().child("Profile_Images");
 
         SharedPreferences spchap = getSharedPreferences("chapterinfo", Context.MODE_PRIVATE);
         chapterid = spchap.getString("chapterID", "tempid");
@@ -100,34 +90,17 @@ public class Settings extends AppCompatActivity {
         position.setEnabled(false);
         position.setKeyListener(null);
 
-        camclick = findViewById(R.id.camclick);
-
-        camclick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                galleryIntent.setType("image/*");
-                startActivityForResult(galleryIntent, GALLEY_REQUEST);
-            }
-        });
-
         vs = findViewById(R.id.vsetting);
         userinitials = findViewById(R.id.profpicset);
         civ = findViewById(R.id.circset);
 
-        uri = sp.getString(getString(R.string.profpic), "profpic");
-        if (uri.equals("nocustomimage")) {
             userinitials.bind(f.getText().toString() + " " + l.getText().toString(), null);
-        } else {
-            vs.showNext();
-            Glide.with(getApplicationContext()).load(uri).into(civ);
-        }
+
 
         logout = findViewById(R.id.lo);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dr.child("online").setValue(ServerValue.TIMESTAMP);
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(Settings.this, LockScreen.class));
                 finish();
@@ -138,9 +111,6 @@ public class Settings extends AppCompatActivity {
         email.setText(sp.getString(getString(R.string.email), "email"));
         email.setEnabled(false);
         email.setKeyListener(null);
-
-        phone = findViewById(R.id.phone);
-        website = findViewById(R.id.web);
 
     }
 
@@ -169,37 +139,7 @@ public class Settings extends AppCompatActivity {
 
         if(item.getItemId() == R.id.check){
             final String userid = mAuth.getCurrentUser().getUid();
-            if(ischange){
-                final StorageReference filepath = mstorageimage.child(mImageuri.getLastPathSegment());
 
-                SharedPreferences sp = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString(getString(R.string.profpic), mImageuri.toString());
-                editor.apply();
-
-                Task<UploadTask.TaskSnapshot> uploadTask;
-                uploadTask = filepath.putFile(mImageuri);
-                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                    @Override
-                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                        if (!task.isSuccessful()) {
-                            throw task.getException();
-                        }
-
-                        // Continue with the task to get the download URL
-                        return filepath.getDownloadUrl();
-                    }
-                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Uri> task) {
-                        if (task.isSuccessful()) {
-                            final Uri downloadUri = task.getResult();
-
-                            dr.child("profpic").setValue(downloadUri.toString());
-                        }
-                    }
-                });
-            }
 
             dr.child("fname").setValue(f.getText().toString());
             dr.child("lname").setValue(l.getText().toString());
@@ -212,31 +152,5 @@ public class Settings extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == GALLEY_REQUEST && resultCode == RESULT_OK) {
-            Uri imageUri = data.getData();
-            CropImage.activity(imageUri).setFixAspectRatio(true).setAspectRatio(1, 1).
-                    setGuidelines(CropImageView.Guidelines.ON).start(this);
-        }
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK) {
-                mImageuri = result.getUri();
 
-                if(uri.equals("nocustomimage")){
-                    vs.showNext();
-                    Glide.with(getApplicationContext()).load(mImageuri).into(civ);
-                }else{
-                    Glide.with(getApplicationContext()).load(mImageuri).into(civ);
-                }
-
-
-                ischange = true;
-            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                Exception error = result.getError();
-            }
-        }
-    }
 }

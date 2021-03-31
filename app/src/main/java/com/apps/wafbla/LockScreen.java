@@ -37,6 +37,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -199,6 +201,7 @@ public class LockScreen extends AppCompatActivity {
                         } else {
                             Toast.makeText(LockScreen.this, "Login failed",
                                     Toast.LENGTH_SHORT).show();
+                            FirebaseAuth.getInstance().signOut();
                             updateUI(null);
                             pbl.setVisibility(View.GONE);
                             login.setEnabled(true);
@@ -254,6 +257,7 @@ public class LockScreen extends AppCompatActivity {
                     Toast.makeText(LockScreen.this, "Login failed, invalid chapter ID",
                             Toast.LENGTH_SHORT).show();
                     updateUI(null);
+                    FirebaseAuth.getInstance().signOut();
                     pbl.setVisibility(View.GONE);
                     login.setEnabled(true);
                 }
@@ -294,6 +298,14 @@ public class LockScreen extends AppCompatActivity {
                     }
 
                     final DatabaseReference finalMDatabase = mDatabase[0];
+                    FirebaseMessaging.getInstance().subscribeToTopic(chapid)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    String msg = getString(R.string.msg_subscribed);
+                                }
+                            });
+                    finalMDatabase.child("device_token").setValue(FirebaseInstanceId.getInstance().getToken());
                     mDatabase[0].addListenerForSingleValueEvent(new com.google.firebase.database.ValueEventListener() {
                         @Override
                         public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
@@ -321,16 +333,8 @@ public class LockScreen extends AppCompatActivity {
                                 editor.putString(getString(R.string.uid), dataSnapshot.child("uid").getValue().toString());
                                 editor.putString(getString(R.string.deviceToken), dataSnapshot.child("device_token").getValue().toString());
 
-                                if (dataSnapshot.hasChild("profpic")) {
-                                    editor.putString(getString(R.string.profpic), dataSnapshot.child("profpic").getValue().toString());
-                                } else {
-                                    editor.putString(getString(R.string.profpic), "nocustomimage");
-                                }
+
                                 editor.apply();
-
-                                finalMDatabase.child("online").setValue(true);
-                                Log.d("DARBAR", "fremove" + dataSnapshot.child("fname").getValue().toString());
-
 
 
                                 Intent intent = new Intent(LockScreen.this, Hello.class);

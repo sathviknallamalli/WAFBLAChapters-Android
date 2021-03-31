@@ -74,6 +74,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
+            android:name="com.apps.wafbla.PastMeetings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.apps.wafbla.SpecificNotification"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name="com.apps.wafbla.Details"
             android:screenOrientation="portrait" />
         <activity
@@ -123,6 +131,7 @@
         </service>
         <service
             android:name="com.apps.wafbla.MyFirebaseMessagingService"
+            android:exported="false"
             android:enabled="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

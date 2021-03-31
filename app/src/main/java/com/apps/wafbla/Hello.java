@@ -26,18 +26,13 @@ public class Hello extends AppCompatActivity {
         CircleImageView cv = findViewById(R.id.profile_imagehello);
 
         SharedPreferences sp = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
-        String uri = sp.getString(getString(R.string.profpic), "profpic");
         String fullname = (sp.getString(getString(R.string.fname), "fname") + " " + sp.getString(getString(R.string.lname), "lname"));
 
         mAuth = FirebaseAuth.getInstance();
 
 
-        if (uri.equals("nocustomimage")) {
             av.bind(fullname, null);
-        } else {
-            vshello.showNext();
-            Glide.with(getApplicationContext()).load(uri).into(cv);
-        }
+
 
         Thread thread = new Thread() {
 

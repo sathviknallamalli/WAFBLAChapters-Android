@@ -51,6 +51,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -252,58 +253,6 @@ public class CreateFBLAAccount extends AppCompatActivity {
 
     }
 
-    public void sendEmailtoAdvisers() {
-        Intent i = getIntent();
-        String chapid = i.getExtras().getString("chapterid");
-
-        DatabaseReference d = FirebaseDatabase.getInstance().getReference().child("Chapters").child(chapid);
-
-        d.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    ArrayList<String> emails = collectCertainField((Map<String, Object>) dataSnapshot.child("Advisers").getValue(), "email");
-                    for (int i = 0; i < emails.size(); i++) {
-                        String subject = "New Member";
-                        String message = "A new member is joining your FBLA Chapter" +
-                                "Here is the student's information.\n\nFirst name: " + firstname + "\nLast name: " + lastname +
-                                "\nEmail: " + enteredemail + "\nUser ID: " + mAuth.getUid() + "\nTheir role: " + theirrole +
-                                "\nTo approve this member, go to the Approvals page in the app and change their status";
-                        SendMail sm = new SendMail(CreateFBLAAccount.this, emails.get(i), subject, message);
-                        sm.execute();
-                    }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    private ArrayList<String> collectCertainField(Map<String, Object> users, String whatyouwant) {
-        ArrayList<String> information = new ArrayList<>();
-        //iterate through each user, ignoring their UID
-        for (Map.Entry<String, Object> entry : users.entrySet()) {
-
-            //Get user map
-            if(!entry.getKey().toString().equals("device_tokens")){
-                Map singleUser = (Map) entry.getValue();
-                //Get phone field and append to list
-
-                if (singleUser != null) {
-                    information.add((String) singleUser.get(whatyouwant));
-                }
-            }
-
-
-        }
-
-        return information;
-    }
-
-
-
     private void updateUI(final FirebaseUser user) {
         if (user != null) {
 
@@ -367,8 +316,12 @@ public class CreateFBLAAccount extends AppCompatActivity {
                 devtokens.addListenerForSingleValueEvent(new com.google.firebase.database.ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
-                        ArrayList<String> advuids = collectCertainField((Map<String, Object>) dataSnapshot.getValue(), "uid");
-                        Log.d("DARBAR", advuids.toString());
+
+                        ArrayList<String> advuids = new ArrayList<String>();
+                        for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
+                            advuids.add(childSnapshot.child("uid").getValue().toString());
+                        }
+
                         for (int i = 0; i < advuids.size(); i++) {
                             DatabaseReference dr = devtokens.child(advuids.get(i)).child("Notifications").push();
                             dr.child("Title").setValue("New Member");
@@ -385,7 +338,6 @@ public class CreateFBLAAccount extends AppCompatActivity {
                     }
                 });
 
-                sendEmailtoAdvisers();
             }
 
 
@@ -410,6 +362,14 @@ public class CreateFBLAAccount extends AppCompatActivity {
                                 // email not sent, so display list_item and restart the activity or do whatever you wish to do
 
                             }
+                        }
+                    });
+
+            FirebaseMessaging.getInstance().subscribeToTopic(chapterid)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            String msg = getString(R.string.msg_subscribed);
                         }
                     });
 

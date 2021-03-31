@@ -236,7 +236,6 @@ public class FBLAHome extends AppCompatActivity
                             .child("Users");
                 }
 
-                dr.child(mAuth.getCurrentUser().getUid()).child("online").setValue(ServerValue.TIMESTAMP);
 
                 FirebaseAuth.getInstance().signOut();
                 Intent i = new Intent(v.getContext(), LockScreen.class);

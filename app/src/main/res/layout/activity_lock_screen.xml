@@ -13,18 +13,12 @@
 
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/imagelogo"
+        <ImageView
+            android:id="@+id/imageView3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textAlignment="center"
-            android:layout_marginTop="20dp"
-            android:textSize="45dp"
-            android:textColor="@color/white"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center_horizontal" />
+            android:layout_height="212dp"
+            android:layout_marginHorizontal="40dp"
+            app:srcCompat="@drawable/wafbla" />
 
         <ProgressBar
             android:id="@+id/pbls"

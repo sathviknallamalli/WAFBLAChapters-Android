@@ -38,7 +38,6 @@
         android:layout_marginStart="11dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:enabled="false"
         android:gravity="top"
         android:hint="f"
         android:inputType="textPersonName" />
@@ -52,6 +51,7 @@
         android:layout_alignStart="@+id/f"
         android:layout_below="@+id/f"
         android:ems="10"
+        android:enabled="false"
         android:gravity="top"
         android:hint="Position"
         android:inputType="textPersonName" />
@@ -63,7 +63,6 @@
         android:layout_alignBaseline="@+id/f"
         android:layout_alignBottom="@+id/f"
         android:layout_marginStart="14dp"
-        android:enabled="false"
         android:layout_toEndOf="@+id/f"
         android:ems="10"
         android:gravity="top"
@@ -75,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/camclick"
+        android:layout_below="@+id/vsetting"
         android:layout_marginTop="14dp"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/line" />
@@ -88,18 +87,9 @@
         android:layout_below="@+id/imageView25"
         android:layout_marginTop="20dp"
         android:text="CONTACT DETAILS"
+        android:layout_marginBottom="10dp"
         android:textSize="16sp"
         android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/imageView26"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignStart="@+id/textView44"
-        android:layout_below="@+id/textView44"
-        android:layout_marginTop="15dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/cloudcirc" />
 
     <ViewSwitcher
         android:id="@+id/vsetting"
@@ -143,33 +133,13 @@
             app:layout_constraintVertical_bias="0.378" />
     </ViewSwitcher>
 
-    <ImageButton
-        android:id="@+id/camclick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/lo"
-        android:layout_below="@+id/vsetting"
-        android:layout_marginEnd="25dp"
-        android:background="@color/trans"
-        app:srcCompat="@drawable/circcam" />
-
-    <EditText
-        android:id="@+id/web"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/vsetting"
-        android:layout_alignTop="@+id/imageView26"
-        android:layout_toEndOf="@+id/textView43"
-        android:ems="10"
-        android:hint="Website"
-        android:inputType="textWebEmailAddress" />
-
     <ImageView
         android:id="@+id/imageView27"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignStart="@+id/imageView26"
-        android:layout_below="@+id/web"
+        android:layout_alignStart="@+id/textView44"
+        android:layout_below="@+id/textView44"
+
         android:layout_marginLeft="2dp"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/emailcirc" />
@@ -179,37 +149,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/vsetting"
-        android:layout_alignStart="@+id/web"
-        android:layout_below="@+id/web"
+        android:layout_alignTop="@+id/imageView26"
+        android:layout_toEndOf="@+id/textView43"
+        android:enabled="false"
+        android:layout_below="@+id/textView44"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress" />
-
-    <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_alignEnd="@+id/imageView27"
-        android:layout_below="@+id/em"
-        android:layout_marginLeft="20dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/phonecirc" />
-
-    <EditText
-        android:id="@+id/phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/em"
-        android:layout_alignStart="@+id/em"
-        android:layout_below="@+id/em"
-        android:ems="10"
-        android:hint="Phone"
-        android:inputType="phone" />
 
     <Button
         android:id="@+id/lo"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/phone"
+        android:layout_below="@+id/em"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"
         android:background="@android:color/holo_red_light"

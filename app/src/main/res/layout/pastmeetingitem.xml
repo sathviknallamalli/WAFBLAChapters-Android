@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="5dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/meetingName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="event title"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/meetingCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/event_title"
+        android:layout_alignStart="@+id/meetingName"
+        android:text="category"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/browser_actions_title_color"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/meetingTimestamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/event_category"
+        android:layout_alignStart="@+id/meetingCount"
+        android:text="event type"
+        android:textColor="@color/browser_actions_title_color"
+        android:textSize="14sp" />
+
+
+
+</LinearLayout>

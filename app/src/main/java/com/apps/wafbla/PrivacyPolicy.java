@@ -79,7 +79,6 @@ public class PrivacyPolicy extends Fragment {
                         .child("Users");
             }
 
-            dr.child(mAuth.getCurrentUser().getUid()).child("online").setValue(ServerValue.TIMESTAMP);
 
             FirebaseAuth.getInstance().signOut();
             Intent i = new Intent(view.getContext(), LockScreen.class);

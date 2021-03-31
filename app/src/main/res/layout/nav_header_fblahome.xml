@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#00bdff"
+    android:background="@color/com_facebook_blue"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <TextView
@@ -74,7 +74,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="6dp"
-            app:avBgTextColor="@color/actionbarcolor"
+            app:avBgTextColor="@color/black"
             app:avCornerRadius="8dp"
             app:avTextColor="@color/white"
             app:avTextSize="8sp">

@@ -2,6 +2,7 @@ package com.apps.wafbla;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -11,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,6 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -62,12 +65,13 @@ public class StartMeeting extends Fragment {
         SharedPreferences spchap = view.getContext().getSharedPreferences("chapterinfo", Context.MODE_PRIVATE);
         chapterid = spchap.getString("chapterID", "tempid");
 
+        setHasOptionsMenu(true);
         SharedPreferences sp = view.getContext().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         role = sp.getString(getString(R.string.role), "role");
         fname = sp.getString(getString(R.string.fname), "fname");
         lname = sp.getString(getString(R.string.lname), "lname");
 
-        getActivity().setTitle("Meeting Notes");
+        getActivity().setTitle("Manage Meetings");
 
         meetingtitle = view.findViewById(R.id.meetingtitle);
 
@@ -83,7 +87,7 @@ public class StartMeeting extends Fragment {
         dr.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
+                if(dataSnapshot.exists() && dataSnapshot.getChildrenCount() != 1){
                     if (dataSnapshot.child("isActive").getValue().toString().equals("true")) {
                        intro.setText(intro.getText().toString() + "\n\nYou have a meeting currently live and active");
                         Toast.makeText(view.getContext(), "You have a meeting currently live and active", Toast.LENGTH_SHORT).show();
@@ -127,9 +131,15 @@ public class StartMeeting extends Fragment {
                 dr.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        sendmeetingmail(dataSnapshot.child("ID").getValue().toString(),
-                                dataSnapshot.child("StartTime").getValue().toString(), format, dataSnapshot.child("Attendance")
-                        .getValue().toString(), dataSnapshot.child("Title").getValue().toString());
+
+
+                        final DatabaseReference pmref = FirebaseDatabase.getInstance().getReference().child("Chapters").child(chapterid)
+                                .child("Meetings").child("PastMeetings").push();
+                        pmref.child("Title").setValue(dataSnapshot.child("Title").getValue().toString());
+                        pmref.child("Attendance").setValue(dataSnapshot.child("Attendance").getValue());
+                        pmref.child("StartTime").setValue(dataSnapshot.child("StartTime").getValue().toString());
+
+
 
                         dr.child("Attendance").removeValue();
                         dr.child("ID").removeValue();
@@ -199,9 +209,44 @@ public class StartMeeting extends Fragment {
 
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.pastMeetingIcon) {
+
+            /* DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("Users");*/
+
+
+            SharedPreferences spchap = view.getContext().getSharedPreferences("chapterinfo", Context.MODE_PRIVATE);
+            final String chapid = spchap.getString("chapterID", "tempid");
+
+            SharedPreferences sp = view.getContext().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+            final String role = sp.getString(getString(R.string.role), "role");
+            DatabaseReference dr;
+
+            if(role.equals("Adviser")){
+                dr = FirebaseDatabase.getInstance().getReference().child("Chapters").child(chapid)
+                        .child("Advisers");
+            }else{
+                dr = FirebaseDatabase.getInstance().getReference().child("Chapters").child(chapid)
+                        .child("Users");
+            }
+
+
+            Intent i = new Intent(view.getContext(), PastMeetings.class);
+            startActivity(i);
+            //    finish();
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.note, menu);
+        menu.clear();
+        inflater.inflate(R.menu.meeting, menu);
+
 
         for (int i = 0; i < menu.size(); i++) {
             Drawable drawable = menu.getItem(i).getIcon();
@@ -249,32 +294,6 @@ public class StartMeeting extends Fragment {
 
     }
 
-    public void sendmeetingmail(final String id, final String st, final String et, final String count, final String mt) {
 
-        DatabaseReference d = FirebaseDatabase.getInstance().getReference().child("Chapters").child(chapterid).child("Advisers");
-
-        d.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
-                    if(childSnapshot.hasChild("email")){
-                        String subject = "Meeting Information";
-                        String message = "Here is information about the meeting that just ended within your chapter. " +
-                                "\nMeeting ID: " + id + "\nStart Time: " + st + "\nEnd Time: " + et + "\nAttendance: " + count
-                                + "Meeting title: " + mt;
-                        SendMail sm = new SendMail(view.getContext(),childSnapshot.child("email").getValue().toString(), subject, message);
-                        sm.execute();
-                    }
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
 
 }

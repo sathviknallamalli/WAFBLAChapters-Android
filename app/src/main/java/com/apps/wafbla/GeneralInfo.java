@@ -103,8 +103,7 @@ public class GeneralInfo extends Fragment {
 
         if (item.getItemId() == R.id.logout) {
 
-           /* DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("Users");
-            dr.child(mAuth.getCurrentUser().getUid()).child("online").setValue(ServerValue.TIMESTAMP);*/
+           /* DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("Users");*/
 
 
             SharedPreferences spchap = view.getContext().getSharedPreferences("chapterinfo", Context.MODE_PRIVATE);
@@ -122,7 +121,6 @@ public class GeneralInfo extends Fragment {
                         .child("Users");
             }
 
-            dr.child(mAuth.getCurrentUser().getUid()).child("online").setValue(ServerValue.TIMESTAMP);
 
             FirebaseAuth.getInstance().signOut();
             Intent i = new Intent(view.getContext(), LockScreen.class);

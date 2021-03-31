@@ -100,7 +100,7 @@ public class CheckInMeeting extends Fragment {
                     dr.child("Meetings").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if(dataSnapshot.exists()){
+                            if(dataSnapshot.exists() && dataSnapshot.getChildrenCount() != 1){
                                 if (uniqueid.getText().toString().equals(dataSnapshot.child("ID").getValue().toString())) {
                                     Toast.makeText(view.getContext(), "Checked in!", Toast.LENGTH_SHORT).show();
 
