@@ -9,10 +9,10 @@
 
 
 
-=
+    =
 
-        <WebView
-            android:id="@+id/pripol"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <WebView
+        android:id="@+id/compWeb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </ScrollView>

@@ -231,24 +231,6 @@ public class AdviserAccount extends AppCompatActivity {
                             String msg = getString(R.string.msg_subscribed);
                         }
                     });
-
-
-
-            user.sendEmailVerification()
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                // email sent
-                                Toast.makeText(AdviserAccount.this, "A verification email has been sent," +
-                                        " please check the entered email and verify your account", Toast.LENGTH_LONG).show();
-                            } else {
-                                // email not sent, so display list_item and restart the activity or do whatever you wish to do
-
-                            }
-                        }
-                    });
-
         }
 
 

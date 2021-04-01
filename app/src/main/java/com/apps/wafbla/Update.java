@@ -2,6 +2,7 @@ package com.apps.wafbla;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,7 +64,7 @@ TextView updateTitle;
 
                     updates.clear();
                     for (DataSnapshot childSnapshot: snapshot.getChildren()) {
-                        updates.add(new UpdateItem(childSnapshot.getKey().toLowerCase(), childSnapshot.getValue().toString()));
+                        updates.add(new UpdateItem(childSnapshot.getKey().toString(), childSnapshot.getValue().toString()));
                     }
 
                     //set adapter

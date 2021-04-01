@@ -298,7 +298,7 @@ public class FBLAHome extends AppCompatActivity
             fragmentTransaction.replace(R.id.frameLayout, new Update());
             fragmentTransaction.commit();
         } else if (id == R.id.nav_events) {
-           fragmentTransaction.replace(R.id.frameLayout, new CompetitveEvents());
+           fragmentTransaction.replace(R.id.frameLayout, new AltCompetitveEvents());
            fragmentTransaction.commit();
        }else if (id == R.id.nav_choose) {
            fragmentTransaction.replace(R.id.frameLayout, new ChooseEvent());

@@ -119,8 +119,6 @@ public class RolesStep extends AppCompatActivity {
         codes.child("JoinCodes").child("MemberCode").setValue(mc);
         codes.child("JoinCodes").child("Adviser Code").setValue(ac);
 
-        sendconfirmemail(email, mc);
-
         moveon.setVisibility(View.VISIBLE);
         membercode.setVisibility(View.VISIBLE);
         advcode.setVisibility(View.VISIBLE);
@@ -140,16 +138,4 @@ public class RolesStep extends AppCompatActivity {
 
     }
 
-    public void sendconfirmemail(String email, String mc) {
-        Intent intent = getIntent();
-        String chapid = intent.getExtras().getString("chapterid");
-
-
-        String subject = "Chapter Registration " + chapid;
-        String message = "Below are the codes for each role in your chapter. Only share the proper ones to those members " +
-                "that need it.\n\nMember role: " + mc;
-        SendMail sm = new SendMail(RolesStep.this, email, subject, message);
-        sm.execute();
-
-    }
 }
